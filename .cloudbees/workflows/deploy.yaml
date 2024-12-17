@@ -23,3 +23,9 @@ jobs:
           echo "Artifact: ${{ inputs.artifactName }}"
           echo "Version: ${{ inputs.artifactVersion }}"
           echo "Environment: ${{ inputs.environment }}"
+      - name: Inform system that an artifact version was deployed
+        uses: cloudbees-io/register-deployed-artifact@v1
+        with:
+          name: "${{ inputs.artifactName }}"
+          version: "${{ inputs.artifactVersion }}"
+          url: "docker.io/MyApp/${{ inputs.artifactName }}:${{ inputs.artifactVersion }}"
