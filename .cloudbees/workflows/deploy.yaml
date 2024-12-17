@@ -15,6 +15,7 @@ on:
         required: true
 jobs:
   deploy:
+    environment: pre-prod
     steps:
       - name: deploy
         uses: docker://golang:1.20.3-alpine3.17
