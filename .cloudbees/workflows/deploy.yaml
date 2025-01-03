@@ -21,18 +21,10 @@ on:
         required: false
 jobs:
   pre-prod:
-    environment: pre-prod
-    steps:
-      - name: deploy
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "Artifact: ${{ inputs.artifactName }}"
-          echo "Version: ${{ inputs.artifactVersion }}"
-          echo "Environment: ${{ inputs.environment }}"
-      - name: Inform system that an artifact version was deployed
-        uses: cloudbees-io/register-deployed-artifact@v1
-        with:
-          name: "${{ inputs.artifactName }}"
-          version: "${{ inputs.artifactVersion }}"
-          url: "docker.io/MyApp/${{ inputs.artifactName }}:${{ inputs.artifactVersion }}"
+    uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
+    with:
+      artifactName:     ${{ inputs.artifactName }}
+      artifactVersion:  ${{ inputs.artifactVersion }}
+      environment:      ${{ inputs.environment }}
+      url:              ${{ inputs.url }}
+      digest:           ${{ inputs.digest }}
