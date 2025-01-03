@@ -7,11 +7,7 @@ on:
       - "**"
 jobs:
   build:
-    steps:
-      - uses: cloudbees-io/register-build-artifact@v1
-        name: Publish artifact
-        with:
-          name: "MyAppFE"
-          version: "3.0.0-${{cloudbees.version}}"
-          url: "docker.io/MyApp/MyAppFE:3.0.0-${{cloudbees.version}}"
-          #digest: "sha256:5e0fa16466150c58f628dc6e6c40a9b07e3b3609d"
+    uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
+    with:
+      artifactName: MyAppFE
+      baseVersion: 3.0.0
