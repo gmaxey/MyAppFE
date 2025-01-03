@@ -7,7 +7,7 @@ on:
       - "**"
 jobs:
   build:
-    uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
+    uses: gmaxey/reusableworkflows/MyAppBuild.yaml
     with:
       artifactName: MyAppFE
       baseVersion: 3.0.0
