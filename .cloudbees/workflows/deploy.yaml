@@ -21,7 +21,6 @@ on:
         required: false
 jobs:
   pre-prod:
-    environment: pre-prod
     uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
     with:
       artifactName:     ${{ inputs.artifactName }}
