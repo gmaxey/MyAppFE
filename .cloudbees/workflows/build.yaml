@@ -10,4 +10,4 @@ jobs:
     uses: gmaxey/reusableworkflows/MyAppBuild.yaml
     with:
       artifactName: MyAppFE
-      baseVersion: 3.0.2
+      baseVersion: 3.0.3
