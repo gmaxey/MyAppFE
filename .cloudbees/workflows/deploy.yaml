@@ -21,7 +21,18 @@ on:
         required: false
 jobs:
   pre-prod:
+    if: inputs.environment == 'pre-prod'
     environment: pre-prod
+    uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
+    with:
+      artifactName:     ${{ inputs.artifactName }}
+      artifactVersion:  ${{ inputs.artifactVersion }}
+      environment:      ${{ inputs.environment }}
+      url:              ${{ inputs.url }}
+      digest:           ${{ inputs.digest }}
+  prod:
+    if: inputs.environment == 'prod'
+    environment: prod
     uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
     with:
       artifactName:     ${{ inputs.artifactName }}
