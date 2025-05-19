@@ -13,12 +13,6 @@ on:
       environment:
         type: string
         required: true
-      url:
-        type: string
-        required: false
-      digest:
-        type: string
-        required: false
 jobs:
   deploy:
     uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
@@ -26,5 +20,3 @@ jobs:
       artifactName:     ${{ inputs.artifactName }}
       artifactVersion:  ${{ inputs.artifactVersion }}
       environment:      ${{ inputs.environment }}
-      url:              ${{ inputs.url }}
-      digest:           ${{ inputs.digest }}
