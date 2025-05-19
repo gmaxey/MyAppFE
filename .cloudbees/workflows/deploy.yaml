@@ -13,6 +13,17 @@ on:
       environment:
         type: string
         required: true
+  workflow_call:
+    inputs:
+      artifactName:
+        type: string
+        required: true
+      artifactVersion:
+        type: string
+        required: true
+      environment:
+        type: string
+        required: true
 jobs:
   deploy:
     uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
