@@ -4,10 +4,7 @@ name: deploy
 on:
   workflow_dispatch:
     inputs:
-      artifactName:
-        type: string
-        required: true
-      artifactVersion:
+      artifact-id:
         type: string
         required: true
       environment:
@@ -15,10 +12,7 @@ on:
         required: true
   workflow_call:
     inputs:
-      artifactName:
-        type: string
-        required: true
-      artifactVersion:
+      artifact-id:
         type: string
         required: true
       environment:
@@ -28,6 +22,4 @@ jobs:
   deploy:
     uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
     with:
-      artifactName:     ${{ inputs.artifactName }}
-      artifactVersion:  ${{ inputs.artifactVersion }}
-      environment:      ${{ inputs.environment }}
+      artifact-id:     ${{ inputs.artifact-id }}
