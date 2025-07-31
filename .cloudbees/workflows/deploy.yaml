@@ -22,4 +22,4 @@ jobs:
   deploy:
     uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
     with:
-      artifact-id:     ${{ inputs.artifact-id }}
+      artifact-id: ${{ inputs.artifact-id }}
